@@ -31,7 +31,8 @@ else:
     df = pd.DataFrame([generate_transaction() for _ in range(50)])
 
 # Feature Engineering
-df['hour'] = pd.to_datetime(df['timestamp']).dt.hour
+df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
+df['hour'] = df['timestamp'].dt.hour.fillna(-1).astype(int)
 df['amount_over_5000'] = df['amount'] > 5000
 df['odd_hour'] = df['hour'].isin([0,1,2,3,4])
 df['suspicious_location'] = df['location'].isin(["Russia", "Nigeria", "North Korea"])
