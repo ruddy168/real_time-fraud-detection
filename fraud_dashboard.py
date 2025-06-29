@@ -31,6 +31,7 @@ else:
     df = pd.DataFrame([generate_transaction() for _ in range(50)])
 
 # Feature Engineering
+st.write("Available columns:", df.columns.tolist())
 df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
 df['hour'] = df['timestamp'].dt.hour.fillna(-1).astype(int)
 df['amount_over_5000'] = df['amount'] > 5000
