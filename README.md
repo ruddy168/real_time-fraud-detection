@@ -20,4 +20,4 @@ It includes:
 ## 🧠 Technologies Used
 - `Python`, `Pandas`, `scikit-learn`, `Faker`
 - `Streamlit` for real-time dashboard
-- `Colab` for backend logic and prototyping
+- `Google Colab` for backend logic and prototyping
